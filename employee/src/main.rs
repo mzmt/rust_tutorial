@@ -31,6 +31,7 @@ fn main() {
         println!("1: resist");
         println!("2: show");
         println!("3: index");
+        println!("4: quit");
 
         let mut n = String::new();
 
@@ -65,6 +66,7 @@ fn main() {
             3 => {
                 println!("OK, let's show employee list.");
             },
+            4 => { break; }
             _ => println!("Please valid number.😠💢"),
         }
 
