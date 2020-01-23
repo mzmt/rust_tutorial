@@ -70,7 +70,7 @@ fn main() {
             _ => println!("Please valid number.😠💢"),
         }
 
-        println!("You guessed: {}", task_num);
+        println!("You selected: {}", task_num);
 
         // match guess.cmp(&secret_number) {
         //     Ordering::Less => println!("Too small!"),
