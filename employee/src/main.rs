@@ -19,9 +19,9 @@ struct TaskLog {
 
 struct Employee {
     name: String,
-    gender: Gender,
-    age: i32,
-    salary: i32,
+    // gender: Gender,
+    // age: i32,
+    // salary: i32,
 }
 
 fn main() {
@@ -47,11 +47,44 @@ fn main() {
         match task_num {
             1 => {
                 println!("OK, let's resist employee.");
+
+                println!("Please enter name.");
+                let mut name = String::new();
+                io::stdin()
+                    .read_line(&mut name)
+                    .expect("Failed to read line");
+
+                // println!("Please enter gender.");
+                // let mut gender = String::new();
+                // io::stdin()
+                //     .read_line(&mut n)
+                //     .expect("Failed to read line");
+
+                // println!("Please enter age.");
+                // let mut age = String::new();
+                // io::stdin()
+                //     .read_line(&mut n)
+                //     .expect("Failed to read line");
+                // let age: u32 = match n.trim().parse() {
+                //     Ok(num) => num,
+                //     Err(_) => continue,
+                // };
+
+                // println!("Please enter salary.");
+                // let mut salary = String::new();
+                // io::stdin()
+                //     .read_line(&mut n)
+                //     .expect("Failed to read line");
+                // let salary: u32 = match n.trim().parse() {
+                //     Ok(num) => num,
+                //     Err(_) => continue,
+                // };
+
                 let employee = Employee {
-                    name: String::from("mzmt"),
-                    gender: Gender::Male,
-                    age: 23,
-                    salary: 900,
+                    name: name,
+                    // gender: Gender::Male,
+                    // age: 23,
+                    // salary: 900,
                 };
             },
             2 => {
