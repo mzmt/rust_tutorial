@@ -25,6 +25,13 @@ struct Employee {
 }
 
 fn main() {
+    // オンメモリ上に従業員のデータを保存する
+    let mut employee_list =  vec![
+        Employee {
+            name: String::from("mzmt"),
+        },
+    ];
+
     println!("Hi, I'm employee management system. Let's select number.");
 
     loop {
@@ -86,6 +93,8 @@ fn main() {
                     // age: 23,
                     // salary: 900,
                 };
+
+                employee_list.push(employee);
             },
             2 => {
                 println!("OK, let's show employee datase.");
@@ -98,6 +107,10 @@ fn main() {
             },
             3 => {
                 println!("OK, let's show employee list.");
+
+                for i in &employee_list {
+                    println!("name: {}", i.name);
+                }
             },
             4 => { break; }
             _ => println!("Please valid number.😠💢"),
