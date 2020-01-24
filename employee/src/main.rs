@@ -109,7 +109,7 @@ fn main() {
                 println!("Please tell me employee name you want to know.");
                 let mut name = String::new();
                 io::stdin()
-                    .read_line(&mut n)
+                    .read_line(&mut name)
                     .expect("Failed to read line");
                 let employee = Employee::find(&employee_list, &name).unwrap();
                 println!("employee name is {}", employee.name);
