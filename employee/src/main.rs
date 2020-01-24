@@ -24,13 +24,20 @@ struct Employee {
     // salary: i32,
 }
 
+impl Employee {
+    fn find<'a>(list: &'a Vec<Employee>, name: &str) -> Option<&'a Employee> {
+        for employee in list {
+            if employee.name == name {
+                return Some(employee)
+            }
+        }
+        None
+    }
+}
+
 fn main() {
     // オンメモリ上に従業員のデータを保存する
-    let mut employee_list =  vec![
-        Employee {
-            name: String::from("mzmt"),
-        },
-    ];
+    let mut employee_list =  vec![];
 
     println!("Hi, I'm employee management system. Let's select number.");
 
@@ -104,6 +111,8 @@ fn main() {
                 io::stdin()
                     .read_line(&mut n)
                     .expect("Failed to read line");
+                let employee = Employee::find(&employee_list, &name).unwrap();
+                println!("employee name is {}", employee.name);
             },
             3 => {
                 println!("OK, let's show employee list.");
