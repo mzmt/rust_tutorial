@@ -102,17 +102,25 @@ fn main() {
                 };
 
                 employee_list.push(employee);
+                println!("<success>");
             },
             2 => {
                 println!("OK, let's show employee datase.");
-
                 println!("Please tell me employee name you want to know.");
                 let mut name = String::new();
                 io::stdin()
                     .read_line(&mut name)
                     .expect("Failed to read line");
-                let employee = Employee::find(&employee_list, &name).unwrap();
-                println!("employee name is {}", employee.name);
+                let employee: Option<&Employee> = Employee::find(&employee_list, &name);
+
+                match employee {
+                    Some(e) => println!("employee name is {}", e.name),
+                    None => println!("Nothing found."),
+                }
+                // Someが返って来た時だけ書くならこう
+                // if let Some(e) = employee {
+                //     println!("employee name is {}", e.name);
+                // }
             },
             3 => {
                 println!("OK, let's show employee list.");
@@ -126,14 +134,5 @@ fn main() {
         }
 
         println!("You selected: {}", task_num);
-
-        // match guess.cmp(&secret_number) {
-        //     Ordering::Less => println!("Too small!"),
-        //     Ordering::Greater => println!("Too big!"),
-        //     Ordering::Equal => {
-        //         println!("You win!");
-        //         break;
-        //     }
-        // }
     }
 }
