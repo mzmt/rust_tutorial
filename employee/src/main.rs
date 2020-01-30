@@ -90,7 +90,7 @@ fn main() {
                     },
                 };
 
-                let mut gender: Gender = Gender::Male;
+                let mut gender: Gender;
                 match num {
                     1 => {
                         gender = Gender::Male;
@@ -101,7 +101,7 @@ fn main() {
                     3 => {
                         gender = Gender::Other;
                     },
-                    _ => ()
+                    _ => gender = Gender::
                 }
 
 
