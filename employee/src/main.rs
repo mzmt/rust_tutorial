@@ -7,6 +7,7 @@ enum TaskKind {
     Index,
 }
 
+#[derive(Debug)]
 enum Gender {
     Male,
     Female,
@@ -14,12 +15,13 @@ enum Gender {
 }
 
 struct TaskLog {
+    id: i32,
     kind: TaskKind,
 }
 
 struct Employee {
     name: String,
-    // gender: Gender,
+    gender: Gender,
     // age: i32,
     // salary: i32,
 }
@@ -74,15 +76,34 @@ fn main() {
                 //     .read_line(&mut n)
                 //     .expect("Failed to read line");
 
-                // println!("Please enter age.");
-                // let mut age = String::new();
-                // io::stdin()
-                //     .read_line(&mut n)
-                //     .expect("Failed to read line");
-                // let age: u32 = match n.trim().parse() {
-                //     Ok(num) => num,
-                //     Err(_) => continue,
-                // };
+                println!("Please select gender.");
+                println!("1: male, 2: female, 3: other.");
+                let mut gender_num = String::new();
+                io::stdin()
+                    .read_line(&mut gender_num)
+                    .expect("Failed to read line");
+                let num: u32 = match gender_num.trim().parse() {
+                    Ok(g) => g,
+                    Err(_) => {
+                        println!("Error");
+                        continue;
+                    },
+                };
+
+                let mut gender: Gender = Gender::Male;
+                match num {
+                    1 => {
+                        gender = Gender::Male;
+                    },
+                    2 => {
+                        gender = Gender::Female;
+                    },
+                    3 => {
+                        gender = Gender::Other;
+                    },
+                    _ => ()
+                }
+
 
                 // println!("Please enter salary.");
                 // let mut salary = String::new();
@@ -96,7 +117,7 @@ fn main() {
 
                 let employee = Employee {
                     name: name,
-                    // gender: Gender::Male,
+                    gender: gender,
                     // age: 23,
                     // salary: 900,
                 };
