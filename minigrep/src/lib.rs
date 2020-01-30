@@ -29,6 +29,7 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
 }
 
 // クエリではなくcontentの方を返すから、contentsと戻り値のライフタイムを同じにする
+// 戻り値の値はborrowedなものだが、queryとcontentsのどちらから借用されたか、コンパイラが分からない
 pub fn search<'a>(query: &str, contents: &'a str) -> Vec<&'a str> {
     vec![]
 }
