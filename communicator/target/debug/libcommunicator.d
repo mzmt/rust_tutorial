@@ -1,0 +1,1 @@
+/Users/ryohei/Desktop/rust_tutorial/communicator/target/debug/libcommunicator.rlib: /Users/ryohei/Desktop/rust_tutorial/communicator/src/client.rs /Users/ryohei/Desktop/rust_tutorial/communicator/src/lib.rs /Users/ryohei/Desktop/rust_tutorial/communicator/src/network/mod.rs /Users/ryohei/Desktop/rust_tutorial/communicator/src/network/server.rs
