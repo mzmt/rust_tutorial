@@ -1,3 +1,2 @@
-
-fn connect() {
+pub fn connect() {
 }
